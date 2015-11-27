@@ -1,0 +1,54 @@
+.plgin_calender .heading02 {
+	background: none;
+	border-bottom: 1px dotted #ccc;
+	margin-bottom: 10px;
+}
+@media only screen and (max-width: 767px) {
+	.plgin_calender .heading02 {
+		padding: 6px 10px;
+		margin-bottom: 0;
+	}
+}
+.plgin_calender table caption {
+	padding: 20px 0 10px;
+}
+.plgin_calender table {
+	width: 100%;
+}
+.plgin_calender table th,
+.plgin_calender table td {
+	text-align: center;
+	padding: 10px 0;
+	width : -webkit-calc(100% / 7);
+	width : calc(100% / 7);
+}
+.plgin_calender table thead th {
+	border-top: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
+	padding: 6px 0;
+}
+.plgin_calender table td {
+	padding: 12px 0;
+	border-bottom: 1px solid #d9d9d9;
+}
+.plgin_calender table td.today {
+	background: #f8f8f8;
+}
+.plgin_calender table td.off {
+	color: #fff;
+	position: relative;
+}
+.plgin_calender table td.off:before {
+	content: "";
+	width: 2em; height: 2em;
+	background: #de5d50;
+	display: inline-block;
+	position: absolute;
+	left: 50%; top: 50%;
+	margin: -1em 0 0 -1em;
+	border-radius: 1em;
+	z-index: -1;
+}
+.plgin_calender .note span {
+	color: #de5d50;
+}

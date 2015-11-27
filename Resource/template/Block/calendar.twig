@@ -1,0 +1,48 @@
+{% macro calendar(holidayList, monthOffset) %}
+    {% set day = date('first day of this month') %}
+    {% if monthOffset %}
+        {% set day = day|date_modify(monthOffset) %}
+    {% endif %}
+    {% set month = day|date('n') %}
+    {% set year = day|date('Y') %}
+    {% set day = day|date_modify('-' ~ day|date('w') ~ 'days') %}
+    {% set today = date() %}
+    <div class="col-sm-6 col-xs-12">
+        <table>
+            <caption class="month">
+                {{ year }}年{{ month }}月
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col" title="日曜日">日</th>
+                    <th scope="col" title="月曜日">月</th>
+                    <th scope="col" title="火曜日">火</th>
+                    <th scope="col" title="水曜日">水</th>
+                    <th scope="col" title="木曜日">木</th>
+                    <th scope="col" title="金曜日">金</th>
+                    <th scope="col" title="土曜日">土</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for i in (0..5) %}
+                <tr>
+                    {% for j in (0..6) %}
+                        {% if day|date('n') == month %}
+                            {% set class = '' %}
+                            {% if day|date('m/d') in holidayList %}
+                                {% set class = class ~ ' off' %}
+                            {% elseif today == day %}
+                                {% set class = 'today' %}
+                            {% endif %}
+                            <td class="{{ class }}">{{ day|date('j') }}</td>
+                        {% else %}
+                            <td>&nbsp;</td>
+                        {% endif %}
+                        {% set day = day|date_modify('+1day') %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endmacro %}

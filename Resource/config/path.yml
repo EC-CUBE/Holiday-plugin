@@ -1,0 +1,5 @@
+# realdir:plugin
+holiday_html_realdir: /html/plugin/holiday
+
+# urlpath
+holiday_urlpath: /plugin/holiday

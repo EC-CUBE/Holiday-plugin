@@ -1,0 +1,7 @@
+name: 定休日管理プラグイン
+code: Holiday
+version: 0.0.1
+service: 
+    - HolidayServiceProvider
+orm.path:
+    - /Resource/doctrine
